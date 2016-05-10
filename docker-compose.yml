@@ -1,0 +1,15 @@
+client:
+  build: client
+  links:
+    - server
+  ports:
+    - 80:80
+  environment:
+    NODE_ENV: production
+
+server:
+  build: server
+  ports:
+    - 8000:8000
+  environment:
+    NODE_ENV: production
