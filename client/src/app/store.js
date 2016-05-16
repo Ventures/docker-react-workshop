@@ -19,6 +19,7 @@ const rootReducer = redux.combineReducers({
   /**
    * Custom reducers.
    */
+  dogs:   require('app/reducers/dog-list').default,
   error:  require('app/reducers/error').default,
   locale: require('app/reducers/locale').default,
 })
