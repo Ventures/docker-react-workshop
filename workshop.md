@@ -41,11 +41,8 @@ Edellisen workshopin lisäksi, tarvitaan VirtualBox & Docker Toolbox.
 
 ## Toteutus
 
-1. Edelliseen projektiin, lisätään valmis **nginx** konfiguraatio frontti-
-   sovellukseen, joka reitittää `/api` kutsut serverille.
-2. Luodaan sekä serverille, että frontille Dockerfilet **alpine-linux**
-   pohjalta.
+1. Luodaan serverille **alpine** pohjainen `Dockerfile`.
+2. Luodaan clientille **debian** pohjainen `Dockerfile`.
 3. Luodaan `docker-compose.yml` tiedosto, jonne palvelut kuvataan.
 4. Ajetaan `docker-compose build && docker-compose up`.
-5. Lisätään järjestelmään **redis**.
-6. Lisätään bäkkäriin pyyntökertojen tallennus redikseen.
+5. Todennetaan toimiva sovellus.
