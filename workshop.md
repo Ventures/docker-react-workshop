@@ -29,23 +29,25 @@ bäkkäristä data ks. sivulle.
 
 ## Tavoite
 
-Otetaan React / Redux Workshopissa luotu sovellus ja kontitetaan se. Laitetaan
-fronttisovellus **nginx** sisään ja lisätään bäkkäriin laskuri, joka laskee
-montako pyyntöä on otettu käynnissäoloajan vastaan. Lisätään rajapinta, joka
-palauttaa tämän. Kontitetaan erikseen frontti, serveri ja redis. Luodaan näitä
-hallitsemaan **docker-compose** konfiguraatio.
+Otetaan React / Redux Workshopissa luotu sovellus ja kontitetaan se. Eli tarjoillaan 
+clientti **nginx** serverillä, joka proxyttaa yhteyden serverille. Tämä siis kontissa.
 
 ## Esivalmistelut (Windows)
 
-Edellisen workshopin lisäksi, tarvitaan VirtualBox & Docker Toolbox.
+Tarvitaan VirtualBox & Docker Toolbox. Testaa toimivuus ajamalla:
+```
+docker run hello-world
+```
 
 ## Toteutus
 
-1. Edelliseen projektiin, lisätään valmis **nginx** konfiguraatio frontti-
-   sovellukseen, joka reitittää `/api` kutsut serverille.
-2. Luodaan sekä serverille, että frontille Dockerfilet **alpine-linux**
-   pohjalta.
+1. Luodaan serverille **alpine** (NodeJS) pohjainen `Dockerfile`.
+   - Asennus: `npm install`, ajo `npm start`.
+2. Luodaan clientille **debian** (NodeJS) pohjainen `Dockerfile`.
+   - Syy tähän se, että käytössä mm. `sass`, joka vaatii `libsass` ja ei oikein
+     meinaa toimia hyvin **alpine** distrolla.
+   - Asennus: `npm install && npm run build`, ajo `npm start`.
+   - Vaatii myös NodeJS moduulien kääntöön tarvittavan tavaran, kuten esim. `make` ja `gcc`.
 3. Luodaan `docker-compose.yml` tiedosto, jonne palvelut kuvataan.
 4. Ajetaan `docker-compose build && docker-compose up`.
-5. Lisätään järjestelmään **redis**.
-6. Lisätään bäkkäriin pyyntökertojen tallennus redikseen.
+5. Todennetaan toimiva sovellus.
