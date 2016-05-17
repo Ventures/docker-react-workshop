@@ -42,9 +42,11 @@ docker run hello-world
 ## Toteutus
 
 1. Luodaan serverille **alpine** (NodeJS) pohjainen `Dockerfile`.
+   - Asennus: `npm install`, ajo `npm start`.
 2. Luodaan clientille **debian** (NodeJS) pohjainen `Dockerfile`.
    - Syy tähän se, että käytössä mm. `sass`, joka vaatii `libsass` ja ei oikein
      meinaa toimia hyvin **alpine** distrolla.
+   - Asennus: `npm install && npm run build`, ajo `npm start`.
 3. Luodaan `docker-compose.yml` tiedosto, jonne palvelut kuvataan.
 4. Ajetaan `docker-compose build && docker-compose up`.
 5. Todennetaan toimiva sovellus.
