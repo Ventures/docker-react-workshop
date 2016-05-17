@@ -47,6 +47,7 @@ docker run hello-world
    - Syy tähän se, että käytössä mm. `sass`, joka vaatii `libsass` ja ei oikein
      meinaa toimia hyvin **alpine** distrolla.
    - Asennus: `npm install && npm run build`, ajo `npm start`.
+   - Vaatii myös NodeJS moduulien kääntöön tarvittavan tavaran, kuten esim. `make` ja `gcc`.
 3. Luodaan `docker-compose.yml` tiedosto, jonne palvelut kuvataan.
 4. Ajetaan `docker-compose build && docker-compose up`.
 5. Todennetaan toimiva sovellus.
